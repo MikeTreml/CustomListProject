@@ -20,23 +20,26 @@ namespace CustomList
             arrayItems = new T[capacity];
         }
 
-        public void Add()
+        public void Add(T t)
         {
             ///add value
             //if capacity <= count{capacity *= 2}
                 // recustruct list
         }
-        public void Remove()
+        public void Remove(T t)
         {
             ///remove value
             
             // recustruct list
         }
-        public void ToString()
+        public string ToString()
         {
             ///remove value
 
+
             // recustruct list
+
+            return "";
         }
         private void RecustructList()
         { }
