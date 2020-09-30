@@ -26,11 +26,13 @@ namespace CustomList
             //if capacity <= count{capacity *= 2}
                 // recustruct list
         }
-        public void Remove(T t)
+        public bool Remove(T t)
         {
             ///remove value
-            
+
             // recustruct list
+
+            return false;
         }
         public string ToString()
         {

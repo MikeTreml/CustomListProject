@@ -18,7 +18,7 @@ namespace UnitTestCustomList
             CustomList<int> customList = new CustomList<int>();
             int item = 15;
             //act
-            customList.Add(item,15);
+            customList.Add(item);
 
             //assert
             Assert.AreEqual(customList[0], item);
@@ -44,7 +44,7 @@ namespace UnitTestCustomList
             bool item2 = false;
             //act
             customList.Add(item1);
-            customList.Add(item1);
+            customList.Add(item2);
 
             //assert
             Assert.AreEqual(customList[0], item1);
@@ -108,7 +108,7 @@ namespace UnitTestCustomList
 
 
             //assert
-            Assert.AreEqual(customList.Count, 4);
+            Assert.AreEqual(customList.Count, 5);
         }
 
         //Capacity
@@ -152,7 +152,7 @@ namespace UnitTestCustomList
             customList.Add(item9);
 
             //assert
-            Assert.AreEqual(customList.Capacity, 18);
+            Assert.AreEqual(customList.Capacity, 16);
         }
 
         //Check array after recreation and move to new array

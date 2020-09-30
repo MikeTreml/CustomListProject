@@ -110,6 +110,10 @@ namespace UnitTestCustomList
             customList.Remove(item2);
 
             //assert
+            customList.Add(item1);
+            customList.Add(item2);
+            customList.Add(item3);
+            customList.Add(item4);
             Assert.AreEqual(customList[1], item3);
         }
 
@@ -134,7 +138,7 @@ namespace UnitTestCustomList
             customList.Remove(item2);
 
             //assert
-            Assert.AreEqual(customList.Count(), 2);
+            Assert.AreEqual(customList.Count, 3);
         }
 
         //Capacity
@@ -150,7 +154,7 @@ namespace UnitTestCustomList
             customList.Remove(item1);
 
             //assert
-            Assert.AreEqual(customList.Capacity(), 4);
+            Assert.AreEqual(customList.Capacity, 4);
         }
         [TestMethod]
         public void Remove_FifthItem_CheckCapacity()
@@ -180,7 +184,7 @@ namespace UnitTestCustomList
             customList.Remove(item5);
 
             //assert
-            Assert.AreEqual(customList.Capacity(), 18);
+            Assert.AreEqual(customList.Capacity, 18);
         }
 
         //Check array after recreation and move to new array
@@ -231,7 +235,64 @@ namespace UnitTestCustomList
             //assert
             Assert.AreEqual(customList.count, 4);
         }
-        [TestMethod]
+        public void RemoveInt_ReturnBool_failed()
+        {
+            //arrange
+            CustomList<int> customList = new CustomList<int>();
+            int item1 = 1;
+            int item2 = 2;
+            int item3 = 3;
+            int item4 = 100;
+            
+            //act
+            customList.Add(item1);
+            customList.Add(item2);
+            customList.Add(item3);
+            
+            customList.Remove(item4);
+
+            //assert
+            Assert.AreEqual(customList.Remove(item4), false);
+        }
+        public void RemoveInt_Count_DoesntDecrease()
+        {
+            //arrange
+            CustomList<int> customList = new CustomList<int>();
+            int item1 = 1;
+            int item2 = 2;
+            int item3 = 3;
+            int item4 = 100;
+
+            //act
+            customList.Add(item1);
+            customList.Add(item2);
+            customList.Add(item3);
+            customList.Remove(item4);
+
+            //assert
+            Assert.AreEqual(customList.count, 3);
+        }
+        public void Remove_ReturnBool_Success()
+        {
+            //arrange
+            CustomList<int> customList = new CustomList<int>();
+            int item1 = 1;
+            int item2 = 2;
+            int item3 = 3;
+            
+
+            //act
+            customList.Add(item1);
+            customList.Add(item2);
+            customList.Add(item3);
+
+            customList.Remove(item3);
+
+            //assert
+            Assert.AreEqual(customList.Remove(item3), true);
+        }
+    }
+        // [TestMethod]
         //[ExpectedException(typeof(IndexOutOfRangeException))]
         //public void Remove_RemoveToEnd_CheckOutOfRangeException()
         //{
@@ -255,7 +316,7 @@ namespace UnitTestCustomList
 
         //    //assert
         //    Assert.Fail(customList[2]);
-        }
+    }
     }
 }
 }

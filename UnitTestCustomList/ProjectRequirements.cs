@@ -8,9 +8,6 @@ namespace UnitTestCustomList
 {
     class ProjectRequirements
     {
-
-
-
         [TestMethod]
         public void List_OverLoad_Plus_ConCatTwoList()
         {
@@ -47,10 +44,10 @@ namespace UnitTestCustomList
         public void List_OverLoad_Minus_RemoveItemsContainsInSecondList()
         {
             //arrange
-            CustomList<int> customList1 = new CustomList<int>() { 1, 3, 5 };
-            CustomList<int> customList2 = new CustomList<int>() { 2, 1, 6 };
+            CustomList<int> customList1 = new CustomList<int>();
+            CustomList<int> customList2 = new CustomList<int>();
             CustomList<int> result = new CustomList<int>();
-            CustomList<int> correctAnswer = new CustomList<int>() { 3, 5 };
+            CustomList<int> correctAnswer = new CustomList<int>();
             int item1 = 1;
             int item2 = 2;
             int item3 = 3;

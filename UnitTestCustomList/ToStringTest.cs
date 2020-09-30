@@ -24,5 +24,20 @@ namespace UnitTestCustomList
             //assert
             Assert.AreEqual(result, expected);
         }
+        [TestMethod]
+        public void EmptyStringCheck()
+        {
+            //arrange
+            CustomList<int> customList = new CustomList<int>();
+            customList.Add(1);
+            customList.Remove(1);
+
+            string expected = "";
+            //act
+            string result = customList.ToString();
+
+            //assert
+            Assert.AreEqual(result, expected);
+        }
     }
 }
