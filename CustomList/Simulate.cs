@@ -6,14 +6,16 @@ using System.Threading.Tasks;
 
 namespace CustomList
 {
-    class Program
+    class Simulate
     {
-        static void Main(string[] args)
+        public Simulate()
         {
-            Simulate simulate = new Simulate();
-            simulate.RunTest();
+                
+        }
 
+        public void RunTest()
+        {
+            CustomList<int> customList = new CustomList<int>();
         }
     }
 }
- 
