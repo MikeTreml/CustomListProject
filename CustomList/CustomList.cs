@@ -1,4 +1,5 @@
 ﻿using System;
+using System.CodeDom;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
@@ -19,14 +20,11 @@ namespace CustomList
         {
             get
             {
-                if (i < 0 || i >= count) { throw new ArgumentOutOfRangeException(); }
+                if (i < 0 || i >= count) { throw new IndexOutOfRangeException(); }
                 else { return myItemArray[i]; }
-
             }
             set
             {
-                //if (i < 0 || i >= count) { throw new ArgumentOutOfRangeException(); }
-                //else { myItemArray[i] = value; }
                 myItemArray[i] = value;
             }
         }
@@ -45,7 +43,6 @@ namespace CustomList
             }
             myItemArray[count] = addItem;
             count++;
-
         }
         public void IncreaseArrayCapacity()
         {
@@ -69,7 +66,7 @@ namespace CustomList
                 {
                     compare = true;
                 }
-                else 
+                else
                 {
                     saveArray[saveArrayPoint] = myItemArray[i];
                     saveArrayPoint++;
@@ -81,27 +78,28 @@ namespace CustomList
         }
         public override string ToString()
         {
-            string saveString=""; 
+            string saveString = "";
             for (int i = 0; i < count; i++)
             {
-                //if (string.IsNullOrEmpty(saveString))
-                //    saveString += myItemArray[i].ToString();
-                //else
-                    saveString += string.Format("{0}", myItemArray[i]);
+                saveString += string.Format("{0}", myItemArray[i]);
             }
-            
             return saveString;
-            
-        }
-        public string Zip(CustomList<T> t)
-        {
-            return "";
-        }
-        private void RecustructList()
-        {
 
         }
-        public static CustomList<T> operator +(CustomList<T> firstList, CustomList<T> secondList)
+        public CustomList<T> Zip( CustomList<T> secondList)
+        {
+            CustomList<T> results = new CustomList<T>();
+            for (int i = 0; i < Count; i++)
+            {
+                results.Add(myItemArray[i]);
+                results.Add(secondList[i]);
+            }
+            
+            return results;
+           
+        }
+
+        public static CustomList<T> operator+ (CustomList<T> firstList, CustomList<T> secondList)
         {
             CustomList<T> results = new CustomList<T>();
             for (int i = 0; i < firstList.count; i++)
@@ -115,36 +113,26 @@ namespace CustomList
             return results;
         }
 
-        public static CustomList<T> operator -(CustomList<T> firstList, CustomList<T> secondList)
+        public static CustomList<T> operator- (CustomList<T> firstList, CustomList<T> secondList)
         {
-            CustomList<T> results = new CustomList<T>();
+            CustomList<T> results = firstList;
             for (int i = 0; i < firstList.count; i++)
             {
                 for (int j = 0; j < secondList.count; j++)
                 {
-                    if (Comparer.Equals(firstList[i], secondList[j]))
+                    if (Equals(firstList[i], secondList[j]))
                     {
-                        break;
-                    }
-                    else if (j == secondList.count - 1)
-                    {
-                        results.Add(firstList[i]);
+                        results.Remove(secondList[j]);
                     }
                 }
             }
             return results;
         }
-        //public IEnumerator<T> GetEnumerator()
-        //{
-        //    for (int i = 0; i < Count; i++)
-        //    {
-        //        yield return arrayItem[i];
-        //    }
-        //}
 
-        //IEnumerator IEnumerable.GetEnumerator()
-        //{
-        //    return GetEnumerator();
-        //}
+        public static CustomList<T> Sort()
+        {
+            CustomList<T> results; 
+            return results;
+        }
     }
 }

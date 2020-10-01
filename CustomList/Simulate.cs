@@ -10,30 +10,38 @@ namespace CustomList
     {
         public Simulate()
         {
-                
+
         }
 
         public void RunTest()
         {
-            //arrange
-            CustomList<int> customList = new CustomList<int>();
-            customList.Add(1);
-            customList.Add(2);
-            customList.Add(3);
-            string expected = "123";
-            //act
-            string result = customList.ToString();
+            char[] a = {'a','b','c','A','B','C','z','Z','1','2','3','0'};
 
-           
-            ////arrange
-            //CustomList<int> customList = new CustomList<int>();
-            //customList.Add(1);
-            //customList.Remove(1);
+            foreach (var item in a)
+            {
+                Console.WriteLine(Char.IsLower(item) + "  "+ (int)(item));
+            }
+            Console.ReadLine();
 
-            //string expected = "";
-            ////act
-            //string result = customList.ToString();
+          
+
 
         }
+        //public CustomList<int> y(CustomList<int> firstList, CustomList<int> secondList)
+        //{
+        //    int sizeCount = 0;
+        //    CustomList<int> results = firstList;
+        //    for (int i = 0; i < firstList.Count; i++)
+        //    {
+        //        for (int j = 0; j < secondList.Count; j++)
+        //        {
+        //            if (Equals(firstList[i], secondList[j]))
+        //            {
+        //                results.Remove(secondList[j]);
+        //            }
+        //        }
+        //    }
+        //    Console.WriteLine(results);
+        //}
     }
 }
