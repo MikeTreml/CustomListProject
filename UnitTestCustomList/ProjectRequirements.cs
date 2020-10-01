@@ -5,8 +5,9 @@ using System.Collections.Generic;
 using System.Text;
 
 namespace UnitTestCustomList
-{
-    class ProjectRequirements
+{ 
+    [TestClass]
+    public class ProjectRequirements
     {
         [TestMethod]
         public void List_OverLoad_Plus_ConCatTwoList()
@@ -96,7 +97,7 @@ namespace UnitTestCustomList
             correctAnswer.Add(item4);
             correctAnswer.Add(item5);
             correctAnswer.Add(item6);
-            result = customList1.Zip(customList2);
+            //result = customList1.Zip(customList2);
 
             //assert
             Assert.AreEqual(result, correctAnswer);

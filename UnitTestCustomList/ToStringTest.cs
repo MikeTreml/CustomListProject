@@ -6,7 +6,8 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace UnitTestCustomList
 {
-    class ToStringTest
+    [TestClass]
+    public class ToStringTest
     {
 
         [TestMethod]

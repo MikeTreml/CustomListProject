@@ -15,7 +15,19 @@ namespace CustomList
 
         public void RunTest()
         {
-            CustomList<int> customList = new CustomList<int>();
+             //arrange
+                CustomList<int> customList = new CustomList<int>();
+
+                int item1 = 1;
+
+                //act
+                customList.Add(item1);
+                customList.Add(item1);
+
+
+                //assert
+               // customList[2].ToString();
+            
         }
     }
 }

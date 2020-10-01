@@ -4,9 +4,11 @@ using System.Collections.Generic;
 using System.Text;
 using CustomList;
 
+
 namespace UnitTestCustomList
 {
-    class AddTest
+    [TestClass]
+    public class AddTest
     {
 
         // check variables
@@ -55,7 +57,7 @@ namespace UnitTestCustomList
         {
             //arrange
             CustomList<char> customList = new CustomList<char>();
-            double item = 'n';
+            char item = 'n';
             //act
             customList.Add(item);
 
@@ -175,7 +177,7 @@ namespace UnitTestCustomList
             customList.Add(item5);
 
             //assert
-            Assert.AreEqual(customList[4], item);
+            Assert.AreEqual(customList[3], item4);
         }
 
 
@@ -212,7 +214,7 @@ namespace UnitTestCustomList
 
 
             //assert
-            Assert.Fail(customList[2]);
+            Assert.Fail(customList[2].ToString());
         }
 
 
