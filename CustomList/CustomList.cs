@@ -21,7 +21,7 @@ namespace CustomList
             {
                 if (i < 0 || i >= count) { throw new ArgumentOutOfRangeException(); }
                 else { return myItemArray[i]; }
-                
+
             }
             set
             {
@@ -57,22 +57,41 @@ namespace CustomList
             }
             myItemArray = newSizeArray;
         }
-        public bool Remove(T t)
+        public bool Remove(T itemToRemove)
         {
-            ///remove value
-
-            // recustruct list
-
-            return false;
+            bool compare = false;
+            T[] saveArray = new T[capacity];
+            int saveArrayPoint = 0;
+            for (int i = 0; i < count; i++)
+            {
+                // this will only trigger for one remove
+                if (Equals(myItemArray[i], itemToRemove) && compare == false)
+                {
+                    compare = true;
+                }
+                else 
+                {
+                    saveArray[saveArrayPoint] = myItemArray[i];
+                    saveArrayPoint++;
+                }
+            }
+            if (compare) { count--; }
+            myItemArray = saveArray;
+            return compare;
         }
-        public string ToString()
+        public override string ToString()
         {
-            ///remove value
-
-
-            // recustruct list
-
-            return "";
+            string saveString=""; 
+            for (int i = 0; i < count; i++)
+            {
+                //if (string.IsNullOrEmpty(saveString))
+                //    saveString += myItemArray[i].ToString();
+                //else
+                    saveString += string.Format("{0}", myItemArray[i]);
+            }
+            
+            return saveString;
+            
         }
         public string Zip(CustomList<T> t)
         {

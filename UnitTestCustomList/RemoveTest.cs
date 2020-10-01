@@ -115,6 +115,7 @@ namespace UnitTestCustomList
             customList.Add(item2);
             customList.Add(item3);
             customList.Add(item4);
+            customList.Remove(item2);
             Assert.AreEqual(customList[1], item3);
         }
 
@@ -185,7 +186,7 @@ namespace UnitTestCustomList
             customList.Remove(item5);
 
             //assert
-            Assert.AreEqual(customList.Capacity, 18);
+            Assert.AreEqual(customList.Capacity, 16);
         }
 
         //Check array after recreation and move to new array
