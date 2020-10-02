@@ -6,10 +6,7 @@ operator- overloaded method
 Removes any object from the first CustomList<T> that is contained in the second CustomList<T>.
 C#
 
-Copy
-public bool Remove (T item);
-
-Parameters
+Parameters:
 The subractor CustomList<T> removes an ojbect from the subtracted that is equal to the subtractor object.
 
 Returns:
