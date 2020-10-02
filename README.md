@@ -1,7 +1,7 @@
 ﻿
 # CustomListProject
 
-- operator overloaded method
+operator- overloaded method
 
 Removes any object from the first CustomList<T> that is contained in the second CustomList<T>.
 C#
