@@ -86,7 +86,7 @@ namespace CustomList
             return saveString;
 
         }
-        public CustomList<T> Zip( CustomList<T> secondList)
+        public CustomList<T> Zip(CustomList<T> secondList)
         {
             CustomList<T> results = new CustomList<T>();
             for (int i = 0; i < Count; i++)
@@ -94,12 +94,12 @@ namespace CustomList
                 results.Add(myItemArray[i]);
                 results.Add(secondList[i]);
             }
-            
+
             return results;
-           
+
         }
 
-        public static CustomList<T> operator+ (CustomList<T> firstList, CustomList<T> secondList)
+        public static CustomList<T> operator +(CustomList<T> firstList, CustomList<T> secondList)
         {
             CustomList<T> results = new CustomList<T>();
             for (int i = 0; i < firstList.count; i++)
@@ -113,7 +113,7 @@ namespace CustomList
             return results;
         }
 
-        public static CustomList<T> operator- (CustomList<T> firstList, CustomList<T> secondList)
+        public static CustomList<T> operator -(CustomList<T> firstList, CustomList<T> secondList)
         {
             CustomList<T> results = firstList;
             for (int i = 0; i < firstList.count; i++)
@@ -129,10 +129,116 @@ namespace CustomList
             return results;
         }
 
-        public static CustomList<T> Sort()
+        public CustomList<string> Sort(CustomList<string> startList)
         {
-            CustomList<T> results; 
-            return results;
+
+            CustomList<string> result = new CustomList<string>();
+
+            while (startList.Count > 0)
+            {
+                int minIndex = 0;
+                double min = 200;
+                double buffer;
+                for (int i = 0; i < startList.Count; i++)
+                {
+                    if (Char.IsLower(startList[i][0]))
+                    {
+                        buffer = (int)(startList[i][0]) - 31.5;
+                    }
+                    else
+                    {
+                        buffer = (int)(startList[i][0]);
+                    }
+                    if (buffer < min)
+                    {
+                        min = buffer;
+                        minIndex = i;
+                    }
+                }
+                result.Add(startList[minIndex]);
+                startList.Remove(startList[minIndex]);
+            }
+            return result;
         }
+        public CustomList<char> Sort(CustomList<char> startList)
+        {
+
+            CustomList<char> result = new CustomList<char>();
+
+            while (startList.Count > 0)
+            {
+                int minIndex = 0;
+                double min = 200;
+                double buffer;
+                for (int i = 0; i < startList.Count; i++)
+                {
+                    if (Char.IsLower(startList[i]))
+                    {
+                        buffer = (int)(startList[i]) - 31.5;
+                    }
+                    else
+                    {
+                        buffer = (int)(startList[i]);
+                    }
+                    if (buffer < min)
+                    {
+                        min = buffer;
+                        minIndex = i;
+                    }
+                }
+                result.Add(startList[minIndex]);
+                startList.Remove(startList[minIndex]);
+            }
+            return result;
+        }
+        public CustomList<double> Sort(CustomList<double> startList)
+        {
+
+            CustomList<double> result = new CustomList<double>();
+
+            while (startList.Count > 0)
+            {
+                int minIndex = 0;
+                double min = 200;
+                double buffer;
+                for (int i = 0; i < startList.Count; i++)
+                {
+                    buffer = startList[i];
+                    if (buffer < min)
+                    {
+                        min = buffer;
+                        minIndex = i;
+                    }
+                }
+                result.Add(startList[minIndex]);
+                startList.Remove(startList[minIndex]);
+            }
+            return result;
+        }
+        public CustomList<int> Sort(CustomList<int> startList)
+        {
+
+            CustomList<int> result = new CustomList<int>();
+
+            while (startList.Count > 0)
+            {
+                int minIndex = 0;
+                double min = 200;
+                double buffer;
+                for (int i = 0; i < startList.Count; i++)
+                {
+                    buffer = startList[i];
+                    if (buffer < min)
+                    {
+                        min = buffer;
+                        minIndex = i;
+                    }
+                }
+                result.Add(startList[minIndex]);
+                startList.Remove(startList[minIndex]);
+            }
+            return result;
+        }
+
     }
 }

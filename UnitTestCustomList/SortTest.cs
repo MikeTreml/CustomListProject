@@ -7,7 +7,7 @@ using CustomList;
 namespace UnitTestCustomList
 {
     [TestClass]
-    class SortTest
+    public class SortTest
     {
         string item1 = "1";
         string item2 = "2";
@@ -28,17 +28,12 @@ namespace UnitTestCustomList
         string item_g = "g";
         string item_h = "h";
         string item_i = "i";
-        string item_The = "The";
         string item_QUICK = "QUICK";
         string item_Quick = "Quick";
         string item_quick = "quick";
-        string item_BROWN = "BROWN";
         string item_brown = "brown";
         string item_Brown = "Brown";
-        string item_over = "over";
         string item_lazy = "lazy";
-        string item_dog = "dog";
-        string item_FOX = "FOX";
 
         [TestMethod]
         public void Sort_OneToNine_Numbers()
@@ -68,9 +63,11 @@ namespace UnitTestCustomList
             correctList.Add(item8);
             correctList.Add(item9);
 
+            sortedList = startList.Sort(startList);
             //assert
-            Assert.AreEqual(correctList, sortedList);
+            Assert.AreEqual(correctList.ToString(), sortedList.ToString());
         }
+        [TestMethod]
         public void Sort_NineToOne_Numbers()
         {
             //arrange
@@ -97,13 +94,46 @@ namespace UnitTestCustomList
             correctList.Add(item7);
             correctList.Add(item8);
             correctList.Add(item9);
-
-            sortedList = 
+            
+            sortedList = startList.Sort(startList);
             //assert
-            Assert.AreEqual(correctList, sortedList);
+            Assert.AreEqual(correctList.ToString(), sortedList.ToString());
         }
 
 
+        [TestMethod]
+        public void Sort_NineThroughOneMixed_Numbers()
+        {
+            //arrange
+            CustomList<string> startList = new CustomList<string>();
+            CustomList<string> correctList = new CustomList<string>();
+            CustomList<string> sortedList = new CustomList<string>();
+            //act
+            startList.Add(item9);
+            startList.Add(item1);
+            startList.Add(item7);
+            startList.Add(item2);
+            startList.Add(item5);
+            startList.Add(item4);
+            startList.Add(item6);
+            startList.Add(item3);
+            startList.Add(item8);
+
+            correctList.Add(item1);
+            correctList.Add(item2);
+            correctList.Add(item3);
+            correctList.Add(item4);
+            correctList.Add(item5);
+            correctList.Add(item6);
+            correctList.Add(item7);
+            correctList.Add(item8);
+            correctList.Add(item9);
+
+            sortedList = startList.Sort(startList);
+            //assert
+            Assert.AreEqual(correctList.ToString(), sortedList.ToString());
+        }
+        [TestMethod]
         public void Sort_aTOi_Numbers()
         {
             //arrange
@@ -131,10 +161,11 @@ namespace UnitTestCustomList
             correctList.Add(item_h);
             correctList.Add(item_i);
 
-
+            sortedList = startList.Sort(startList);
             //assert
-            Assert.AreEqual(correctList, sortedList);
+            Assert.AreEqual(correctList.ToString(), sortedList.ToString());
         }
+        [TestMethod]
         public void Sort_iTOa_Numbers()
         {
             //arrange
@@ -162,9 +193,11 @@ namespace UnitTestCustomList
             correctList.Add(item_h);
             correctList.Add(item_i);
 
+            sortedList = startList.Sort(startList);
             //assert
-            Assert.AreEqual(correctList, sortedList);
+            Assert.AreEqual(correctList.ToString(), sortedList.ToString());
         }
+        [TestMethod]
         public void Sort_aTOiMixed_Numbers()
         {
             //arrange
@@ -173,14 +206,14 @@ namespace UnitTestCustomList
             CustomList<string> sortedList = new CustomList<string>();
             //act
             startList.Add(item_i);
-            startList.Add(item_h);
-            startList.Add(item_g);
-            startList.Add(item_f);
-            startList.Add(item_e);
-            startList.Add(item_d);
-            startList.Add(item_c);
-            startList.Add(item_b);
             startList.Add(item_a);
+            startList.Add(item_g);
+            startList.Add(item_h);
+            startList.Add(item_e);
+            startList.Add(item_c);
+            startList.Add(item_d);
+            startList.Add(item_b);
+            startList.Add(item_f);
 
             correctList.Add(item_a);
             correctList.Add(item_b);
@@ -192,8 +225,210 @@ namespace UnitTestCustomList
             correctList.Add(item_h);
             correctList.Add(item_i);
 
+            sortedList = startList.Sort(startList);
             //assert
-            Assert.AreEqual(correctList, sortedList);
+            Assert.AreEqual(correctList.ToString(), sortedList.ToString());
+        }
+        [TestMethod]
+        public void Sort_LettersAndNumbersMixed()
+        {
+            //arrange
+            CustomList<string> startList = new CustomList<string>();
+            CustomList<string> correctList = new CustomList<string>();
+            CustomList<string> sortedList = new CustomList<string>();
+            //act
+            startList.Add(item4);
+            startList.Add(item_a);
+            startList.Add(item3);
+            startList.Add(item_h);
+            startList.Add(item1);
+            startList.Add(item_c);
+            startList.Add(item_d);
+            startList.Add(item2);
+            startList.Add(item_f);
+
+            correctList.Add(item1);
+            correctList.Add(item2);
+            correctList.Add(item3);
+            correctList.Add(item4);
+            correctList.Add(item_a);
+            correctList.Add(item_c);
+            correctList.Add(item_d);
+            correctList.Add(item_f);
+            correctList.Add(item_h);
+
+            sortedList = startList.Sort(startList);
+            //assert
+            Assert.AreEqual(correctList.ToString(), sortedList.ToString());
+        }
+        [TestMethod]
+        public void Sort_LettersAndNumbersMixed_UpperLowerNumbers()
+        {
+            //arrange
+            CustomList<string> startList = new CustomList<string>();
+            CustomList<string> correctList = new CustomList<string>();
+            CustomList<string> sortedList = new CustomList<string>();
+            //act
+            startList.Add(item4);
+            startList.Add(item_a.ToUpper());
+            startList.Add(item3);
+            startList.Add(item_h);
+            startList.Add(item1);
+            startList.Add(item_a);
+            startList.Add(item_f.ToUpper());
+            startList.Add(item2);
+            startList.Add(item_f);
+
+            correctList.Add(item1);
+            correctList.Add(item2);
+            correctList.Add(item3);
+            correctList.Add(item4);
+            correctList.Add(item_a.ToUpper());
+            correctList.Add(item_a);
+            correctList.Add(item_f.ToUpper());
+            correctList.Add(item_f);
+            correctList.Add(item_h);
+
+            sortedList = startList.Sort(startList);
+            //assert
+            Assert.AreEqual(correctList.ToString(), sortedList.ToString());
+        }
+        [TestMethod]
+        public void Sort_WiththeNumberTen_UpperLowerNumbers()
+        {
+            //arrange
+            CustomList<string> startList = new CustomList<string>();
+            CustomList<string> correctList = new CustomList<string>();
+            CustomList<string> sortedList = new CustomList<string>();
+            //act
+            startList.Add(item4);
+            startList.Add(item_a.ToUpper());
+            startList.Add(item3);
+            startList.Add(item_h);
+            startList.Add(item1);
+            startList.Add(item_a);
+            startList.Add(item_f.ToUpper());
+            startList.Add(item10);
+            startList.Add(item_f);
+
+            correctList.Add(item1);
+            correctList.Add(item10);
+            correctList.Add(item3);
+            correctList.Add(item4);
+            correctList.Add(item_a.ToUpper());
+            correctList.Add(item_a);
+            correctList.Add(item_f.ToUpper());
+            correctList.Add(item_f);
+            correctList.Add(item_h);
+
+            sortedList = startList.Sort(startList);
+            //assert
+            Assert.AreEqual(correctList.ToString(), sortedList.ToString());
+        }
+        [TestMethod]
+        public void Sort_WordsNumbersLetters()
+        {
+            //arrange
+            CustomList<string> startList = new CustomList<string>();
+            CustomList<string> correctList = new CustomList<string>();
+            CustomList<string> sortedList = new CustomList<string>();
+            //act
+            startList.Add(item4);
+            startList.Add(item_a.ToUpper());
+            startList.Add(item3);
+            startList.Add(item_h);
+            startList.Add(item1);
+            startList.Add(item_a);
+            startList.Add(item_f.ToUpper());
+            startList.Add(item_f);
+            startList.Add(item_Quick);
+            startList.Add(item_quick);
+            startList.Add(item_lazy);
+            startList.Add(item_brown);
+            startList.Add(item_Brown);
+
+
+            correctList.Add(item1);
+            correctList.Add(item3);
+            correctList.Add(item4);
+            correctList.Add(item_a.ToUpper());
+            correctList.Add(item_a);
+            correctList.Add(item_Brown);
+            correctList.Add(item_brown);
+            correctList.Add(item_f.ToUpper());
+            correctList.Add(item_f);
+            correctList.Add(item_h);
+            correctList.Add(item_lazy);
+            correctList.Add(item_Quick);
+            correctList.Add(item_quick);
+
+            sortedList = startList.Sort(startList);
+            //assert
+            Assert.AreEqual(correctList.ToString(), sortedList.ToString());
+        }
+        [TestMethod]
+        public void Sort_double()
+        {
+            //arrange
+            CustomList<double> startList = new CustomList<double>();
+            CustomList<double> correctList = new CustomList<double>();
+            CustomList<double> sortedList = new CustomList<double>();
+            //act
+            startList.Add(5.1);
+            startList.Add(6.4);
+            startList.Add(1.23);
+            startList.Add(1.99999);
+            startList.Add(15);
+            startList.Add(1999);
+            startList.Add(55);
+            startList.Add(50);
+            startList.Add(24);
+
+            correctList.Add(1.23);
+            correctList.Add(1.99999);
+            correctList.Add(5.1);
+            correctList.Add(6.4);
+            correctList.Add(15);
+            correctList.Add(24);
+            correctList.Add(50);
+            correctList.Add(55);
+            correctList.Add(1999);
+
+            sortedList = startList.Sort(startList);
+            //assert
+            Assert.AreEqual(correctList.ToString(), sortedList.ToString());
+        }
+        [TestMethod]
+        public void Sort_int()
+        {
+            //arrange
+            CustomList<int> startList = new CustomList<int>();
+            CustomList<int> correctList = new CustomList<int>();
+            CustomList<int> sortedList = new CustomList<int>();
+            //act
+            startList.Add(5);
+            startList.Add(6);
+            startList.Add(1);
+            startList.Add(900);
+            startList.Add(15);
+            startList.Add(1999);
+            startList.Add(55);
+            startList.Add(50);
+            startList.Add(24);
+
+            correctList.Add(1);
+            correctList.Add(5);
+            correctList.Add(6);
+            correctList.Add(15);
+            correctList.Add(24);
+            correctList.Add(50);
+            correctList.Add(55);
+            correctList.Add(900);
+            correctList.Add(1999);
+
+            sortedList = startList.Sort(startList);
+            //assert
+            Assert.AreEqual(correctList.ToString(), sortedList.ToString());
         }
     }
 }
