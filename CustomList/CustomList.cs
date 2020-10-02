@@ -193,55 +193,44 @@ namespace CustomList
             }
             return result;
         }
-        //sort doubles from smallest to largest
+        //sort doubles from smallest to largest (bubble sort)
         public CustomList<double> Sort(CustomList<double> startList)
         {
+            double buffer = 0;
 
-            CustomList<double> result = new CustomList<double>();
-
-            while (startList.Count > 0)
+            for (int i = 0; i < startList.Count; i++)
             {
-                int minIndex = 0;
-                double min = 200;
-                double buffer;
-                for (int i = 0; i < startList.Count; i++)
+                for (int j = i; j < startList.Count; j++)
                 {
-                    buffer = startList[i];
-                    if (buffer < min)
+                    if (startList[i] > startList[j])
                     {
-                        min = buffer;
-                        minIndex = i;
+                        buffer = startList[i];
+                        startList[i] = startList[j];
+                        startList[j] = buffer;
                     }
                 }
-                result.Add(startList[minIndex]);
-                startList.Remove(startList[minIndex]);
             }
-            return result;
+            return startList;
         }
-        //sort ints from smallest to largest
+        //sort ints from smallest to largest (bubble sort)
         public CustomList<int> Sort(CustomList<int> startList)
         {
 
-            CustomList<int> result = new CustomList<int>();
+            int buffer = 0;
 
-            while (startList.Count > 0)
+            for (int i = 0; i < startList.Count; i++)
             {
-                int minIndex = 0;
-                double min = 200;
-                double buffer;
-                for (int i = 0; i < startList.Count; i++)
+                for (int j = i; j < startList.Count; j++)
                 {
-                    buffer = startList[i];
-                    if (buffer < min)
+                    if (startList[i] > startList[j])
                     {
-                        min = buffer;
-                        minIndex = i;
+                        buffer = startList[i];
+                        startList[i] = startList[j];
+                        startList[j] = buffer;
                     }
                 }
-                result.Add(startList[minIndex]);
-                startList.Remove(startList[minIndex]);
             }
-            return result;
+            return startList;
         }
 
     }
