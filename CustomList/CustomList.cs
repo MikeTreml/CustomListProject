@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace CustomList
 {
-    public class CustomList<T>
+    public class CustomList<T>: IEnumerable
     {
         private T[] myItemArray;
         protected int capacity;
@@ -232,6 +232,17 @@ namespace CustomList
             }
             return startList;
         }
+        public IEnumerator<T> GetEnumerator()
+        {
+            for (int i = 0; i < count; i++)
+            {
+                yield return myItemArray[i];
+            }
+        }
 
+        IEnumerator IEnumerable.GetEnumerator()
+        {
+            return myItemArray.GetEnumerator();
+        }
     }
 }

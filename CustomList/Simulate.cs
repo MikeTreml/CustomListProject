@@ -17,8 +17,8 @@ namespace CustomList
         public void RunTest()
         {
             
-            CustomList<int> one = new CustomList<int>();
-            CustomList<int> two = new CustomList<int>();
+            CustomList<int> one = new CustomList<int>() {1,2,3 };
+            CustomList<int> two = new CustomList<int>() { 1, 2, 3,4,5,6,4,1,3,7,8 };
             CustomList<int> result = new CustomList<int>();
             one.Add(1);
             one.Add(3);
@@ -30,7 +30,11 @@ namespace CustomList
 
 
             result = one - two;
-            Console.WriteLine(result[0] + " , " + result[1]);
+            foreach (var item in two)
+            {
+                Console.WriteLine(item);
+            }
+            Console.ReadLine();
             // 3 , 5
         }
        

@@ -10,7 +10,7 @@ namespace UnitTestCustomList
     public class ProjectRequirements
     {
         [TestMethod]
-        public static void List_OverLoad_Plus_ConCatTwoList()
+        public void List_OverLoad_Plus_ConCatTwoList()
         {
             //arrange
             CustomList<int> customList1 = new CustomList<int>();
@@ -39,30 +39,25 @@ namespace UnitTestCustomList
             result = customList1 + customList2;
 
             //assert
-            Assert.AreEqual(result, correctAnswer);
+            Assert.AreEqual(result.ToString(), correctAnswer.ToString());
         }
         [TestMethod]
-        public static void List_OverLoad_Minus_RemoveItemsContainsInSecondList()
+        public void List_OverLoad_Minus_RemoveItemsContainsInSecondList()
         {
             //arrange
-            CustomList<int> customList1 = new CustomList<int>();
-            CustomList<int> customList2 = new CustomList<int>();
+
+            CustomList<int> correctAnswer = new CustomList<int>() { 3, 5 };
+            CustomList<int> customList1 = new CustomList<int>() { 1, 3,5 };
+            CustomList<int> customList2 = new CustomList<int>() { 2,1,6 };
             CustomList<int> result = new CustomList<int>();
-            CustomList<int> correctAnswer = new CustomList<int>();
-            int item1 = 1;
-            int item2 = 2;
-            int item3 = 3;
-            
-            int item5 = 5;
-            int item6 = 6;
-            //act
-            
+
+            result = customList1 - customList2;
 
             //assert
-            Assert.AreEqual(result, correctAnswer);
+            Assert.AreEqual(result.ToString(), correctAnswer.ToString());
         }
         [TestMethod]
-        public static void List_OverLoad_ZipperTwoList()
+        public void List_OverLoad_ZipperTwoList()
         {
 
             //arrange
@@ -94,7 +89,7 @@ namespace UnitTestCustomList
             //result = customList1.Zip(customList2);
             result = customList1.Zip(customList2);
             //assert
-            Assert.AreEqual(result, correctAnswer);
+            Assert.AreEqual(result.ToString(), correctAnswer.ToString());
         }
     }
 }
