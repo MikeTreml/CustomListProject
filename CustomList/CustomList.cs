@@ -128,7 +128,8 @@ namespace CustomList
             }
             return results;
         }
-
+        //Sort string handles the fist char in the string and sort by that. anything with a number will be first. Then letters. Capitol letters get priority of lowercase. 
+        //The down size is that it doesn't sort by the second char if a char is the same for the first. 
         public CustomList<string> Sort(CustomList<string> startList)
         {
 
@@ -160,6 +161,7 @@ namespace CustomList
             }
             return result;
         }
+        //sorts char in order number through letters. Uppercase is before Lowercase.
         public CustomList<char> Sort(CustomList<char> startList)
         {
 
@@ -191,6 +193,7 @@ namespace CustomList
             }
             return result;
         }
+        //sort doubles from smallest to largest
         public CustomList<double> Sort(CustomList<double> startList)
         {
 
@@ -215,6 +218,7 @@ namespace CustomList
             }
             return result;
         }
+        //sort ints from smallest to largest
         public CustomList<int> Sort(CustomList<int> startList)
         {
 
