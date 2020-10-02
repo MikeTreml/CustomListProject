@@ -4,10 +4,9 @@
 operator- overloaded method
 
 Removes any object from the first CustomList<T> that is contained in the second CustomList<T>.
-C#
 
 Parameters:
-The subractor CustomList<T> removes an ojbect from the subtracted that is equal to the subtractor object.
+The subractor CustomList<T>(list2) removes an ojbect from the subtracted CustomList<T>(list1) that is equal to contained object in the subtractor CustomList<T>(list2).
 
 Returns:
 CustomList<T>
